@@ -228,10 +228,36 @@ if (isDevelopment() && process.env.VITE_PORT) {
 }
 
 // Mount API routes
-const { default: router_0 } = await import('../api/index.js');
-app.route('/api', router_0);
+const { default: router_0 } = await import('../api/agent-calls/route.js');
+app.route('/api/agent-calls', router_0);
+const { default: router_1 } = await import('../api/ai-gateway/route.js');
+app.route('/api/ai-gateway', router_1);
+const { default: router_2 } = await import('../api/chat/route.js');
+app.route('/api/chat', router_2);
+const { default: router_3 } = await import('../api/context/route.js');
+app.route('/api/context', router_3);
+const { default: router_4 } = await import('../api/durable-stream/route.js');
+app.route('/api/durable-stream', router_4);
+const { default: router_5 } = await import('../api/evals/route.js');
+app.route('/api/evals', router_5);
+const { default: router_6 } = await import('../api/hello/route.js');
+app.route('/api/hello', router_6);
+const { default: router_7 } = await import('../api/key-value/route.js');
+app.route('/api/key-value', router_7);
+const { default: router_8 } = await import('../api/model-arena/route.js');
+app.route('/api/model-arena', router_8);
+const { default: router_9 } = await import('../api/object-storage/route.js');
+app.route('/api/object-storage', router_9);
+const { default: router_10 } = await import('../api/sse-stream/route.js');
+app.route('/api/sse-stream', router_10);
+const { default: router_11 } = await import('../api/streaming/route.js');
+app.route('/api/streaming', router_11);
+const { default: router_12 } = await import('../api/vector-storage/route.js');
+app.route('/api/vector-storage', router_12);
+const { default: router_13 } = await import('../api/websocket/route.js');
+app.route('/api/websocket', router_13);
 
-const hasWorkbench = true;
+const hasWorkbench = false;
 if (hasWorkbench) {
 	// Mount workbench API routes (/_agentuity/workbench/*)
 	const workbenchRouter = createWorkbenchRouter();
